@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: url(img/4.jpg);
+    background-size: cover;
+}
+.container {
+    margin: 0 auto;
+    padding: 50px 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 1200px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-image: url(img/bg.jpg);
+    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+
+}
+
+
+.cat {
+    width: 300px;
+    height: 200px;
+    transition: all 1s ease;
+}
+.playing {
+    transform: scale(1.1);
+    --border-width: 3px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    font-family: Lato, sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: white;
+    background: #222;
+    border-radius: var(--border-width);
+  }
+  .playing::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0);
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+  }
+  
+  @keyframes moveGradient {
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+
+
+  
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.semicat {
+    width: 41px;
+}
+
+.midcat {
+    width: 700px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+
+    font-weight: 600;
+    font-size: 70px;
+    line-height: 65px;
+    letter-spacing: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 400%;
+    animation: move 5s ease infinite;
+    background-image: linear-gradient(68.7deg, rgba(29, 173, 235, 1) 13.2%, rgba(137, 149, 250, 1) 29.8%, rgba(229, 109, 212, 1) 48.9%, rgba(255, 68, 128, 1) 68.2%, rgba(255, 94, 0, 1) 86.4%);
+}
+
+
+
+
+@keyframes move {
+
+    0%,
+    100% {
+        background-position: 200% 0%;
+    }
+
+    50% {
+        background-position: 0% 200%;
+    }
+}

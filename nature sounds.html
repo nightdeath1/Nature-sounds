@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Sounds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="semicat">
+        </div>
+        <div class="midcat">
+            <h3>Nature sounds</h3>
+        </div>
+        <div class="semicat">
+        </div>
+        <div class="cat" name="cat1"><img src="img/thunder.jpg"></div>
+        <div class="cat" name="cat2"><img src="img/nightforest.jpg"></div>
+        <div class="cat" name="cat3"><img src="img/jungle.jpg"></div>
+        <div class="cat" name="cat4"><img src="img/rain.jpg"></div>
+        <div class="cat" name="cat5"><img src="img/beach.jpg"></div>
+        <div class="cat" name="cat6"><img src="img/waterflow.jpg"></div>    
+    </div>
+
+    <audio class="aud" loop preload="auto" name="cat1" src="audio/rainthunder.wav"></audio>
+    <audio class="aud" loop preload="auto" name="cat2" src="audio/nightforest.wav"></audio>
+    <audio class="aud" loop preload="auto" name="cat3" src="audio/birds jungle.wav"></audio>
+    <audio class="aud" loop preload="auto" name="cat4" src="audio/rain.wav"></audio>
+    <audio class="aud" loop preload="auto" name="cat5" src="audio/beach.mp3"></audio>
+    <audio class="aud" loop preload="auto" name="cat6" src="audio/water flow.wav"></audio>
+
+    <script>
+        const cats = document.querySelectorAll(".cat");
+        const sounds = document.querySelectorAll(".aud");
+        const counts = {};
+        cats.forEach(cat => cat.addEventListener('click', () => {
+            const catValue = cat.getAttribute('name');
+            sounds.forEach(sound => {
+                const soundValue = sound.getAttribute('name');
+                if (catValue !== soundValue) {
+                    return
+                }
+                if (!counts[catValue]) {
+                    counts[catValue] = 1;
+                    cat.classList.add('playing');
+                    sound.volume = 0.6;
+                    sound.currentTime = 0;
+                    sound.play();
+                }
+                else {
+                    counts[catValue] = 0;
+                    sound.pause();
+                    cat.classList.remove('playing');
+                }
+            })
+        }))
+        // cats.forEach(cat => cat.addEventListener('click', () => {
+        //     cat.classList.remove('playing');
+        // }))
+    </script>
+</body>
+
+</html>
